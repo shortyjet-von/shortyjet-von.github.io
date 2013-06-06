@@ -4,7 +4,7 @@
   <title><![CDATA[ShortyJet.Von's Board]]></title>
   <link href="http://shortyjet-von.github.io/atom.xml" rel="self"/>
   <link href="http://shortyjet-von.github.io/"/>
-  <updated>2013-06-06T14:19:04+08:00</updated>
+  <updated>2013-06-06T15:38:17+08:00</updated>
   <id>http://shortyjet-von.github.io/</id>
   <author>
     <name><![CDATA[ShortyJet Von]]></name>
@@ -12,6 +12,49 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[SDL学习日记1:Get Start]]></title>
+    <link href="http://shortyjet-von.github.io/blog/2013/06/06/sdlxue-xi-ri-ji-01/"/>
+    <updated>2013-06-06T14:34:00+08:00</updated>
+    <id>http://shortyjet-von.github.io/blog/2013/06/06/sdlxue-xi-ri-ji-01</id>
+    <content type="html"><![CDATA[<p>闲来无事，想玩玩SDL，找来一个介绍SDL的网站，挺不错的，从环境配置到简单的使用。初学者必看！
+想获取更多信息，访问<a href="http://lazyfoo.net/SDL_tutorials/index.php">Lazyfoo</a>的博客！</p>
+
+<h5>现在开始!</h5>
+
+<h6>首先是搭环境，我用的环境是ubuntu系统，直接用命令行+VIM编辑器，没有IDE工具，所以这个工作很简单。只是要安装SDL的包就行了。</h6>
+
+<h6>apt-get install libsdl1.2-dev libsdl-image1.2-dev libsdl-mixer1.2-dev libsdl-ttf2.0-dev</h6>
+
+<h6>装完以后写一个小小的测试程序来测试一下环境有没有配置好。推荐使用C++，但是我比较熟悉C而且也只是玩玩，所以我用的C语言。</h6>
+
+<h6>代码如下：</h6>
+
+<pre><code>
+#include <SDL/SDL.h> 
+#include <unistd.h>
+
+int main(int argc, char **argv)
+{
+    SDL_Init( SDL_INIT_EVERYTHING );
+    SDL_Delay(1000);
+    SDL_Quit();
+    return 0;
+}
+</code></pre>
+
+
+<h6>编译的时候直接用的gcc编译就行，记得链上libSDL.so</h6>
+
+<pre><code>    gcc -o mysdl mysdl.c -lSDL
+</code></pre>
+
+<h6>编译OK，执行OK的话就表示SDL环境搭建OK！我们就可以开始我们的SDL之旅了。</h6>
+
+<h6>更多环境的配置，请访问<a href="http://lazyfoo.net/SDL_tutorials/index.php">Lazyfoo</a>的博客！</h6>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Just Say Hello]]></title>
