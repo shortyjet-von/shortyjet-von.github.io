@@ -10,7 +10,9 @@
 
   
   <meta name="description" content="闲来无事，想玩玩SDL，找来一个介绍SDL的网站，挺不错的，从环境配置到简单的使用。初学者必看！
-想获取更多信息，访问Lazyfoo的博客！ 现在开始! 首先是搭环境，我用的环境是ubuntu系统，直接用命令行+VIM编辑器，没有IDE工具，所以这个工作很简单。只是要安装SDL的包就行了。 apt &hellip;">
+想获取更多信息，访问Lazyfoo的博客！
+现在开始!
+首先是搭环境，我用的环境是ubuntu系统，直接用命令行+VIM编辑器，没有IDE工具，所以这个工作很简单。只是要安装SDL的包就行了。 apt &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -93,40 +95,59 @@
 
 
 <div class="entry-content"><p>闲来无事，想玩玩SDL，找来一个介绍SDL的网站，挺不错的，从环境配置到简单的使用。初学者必看！
-想获取更多信息，访问<a href="http://lazyfoo.net/SDL_tutorials/index.php">Lazyfoo</a>的博客！</p>
+想获取更多信息，访问<a href="http://lazyfoo.net/SDL_tutorials/index.php">Lazyfoo</a>的博客！
+现在开始!
+首先是搭环境，我用的环境是ubuntu系统，直接用命令行+VIM编辑器，没有IDE工具，所以这个工作很简单。只是要安装SDL的包就行了。</p>
 
-<h5>现在开始!</h5>
+<pre><code>apt-get install libsdl1.2-dev libsdl-image1.2-dev libsdl-mixer1.2-dev libsdl-ttf2.0-dev
+</code></pre>
 
-<h6>首先是搭环境，我用的环境是ubuntu系统，直接用命令行+VIM编辑器，没有IDE工具，所以这个工作很简单。只是要安装SDL的包就行了。</h6>
-
-<h6>apt-get install libsdl1.2-dev libsdl-image1.2-dev libsdl-mixer1.2-dev libsdl-ttf2.0-dev</h6>
-
-<h6>装完以后写一个小小的测试程序来测试一下环境有没有配置好。推荐使用C++，但是我比较熟悉C而且也只是玩玩，所以我用的C语言。</h6>
-
-<h6>代码如下：</h6>
+<p>装完以后写一个小小的测试程序来测试一下环境有没有配置好。推荐使用C++，但是我比较熟悉C而且也只是玩玩，所以我用的C语言。
+代码如下：</p>
 
 <pre><code>
-#include <SDL/SDL.h> 
-#include <unistd.h>
+    #include &ltSDL/SDL.h&gt 
+    #include &ltunistd.h&gt
 
-int main(int argc, char **argv)
-{
-    SDL_Init( SDL_INIT_EVERYTHING );
-    SDL_Delay(1000);
-    SDL_Quit();
-    return 0;
-}
+    int main(int argc, char **argv)
+    {
+        SDL_Init( SDL_INIT_EVERYTHING );   //初始化SDL， SDL_INIT_EVERYTHING&sup1表示初始化SDL的所有模块
+        SDL_Delay(1000);       //delay， 单位是毫秒
+        SDL_Quit();     //退出SDL
+        return 0;
+    }
 </code></pre>
 
 
-<h6>编译的时候直接用的gcc编译就行，记得链上libSDL.so</h6>
+<p>编译的时候直接用的gcc编译就行，记得链上libSDL.so</p>
 
-<pre><code>    gcc -o mysdl mysdl.c -lSDL
+<pre><code>gcc -o mysdl mysdl.c -lSDL
 </code></pre>
 
-<h6>编译OK，执行OK的话就表示SDL环境搭建OK！我们就可以开始我们的SDL之旅了。</h6>
+<p>编译OK，执行OK的话就表示SDL环境搭建OK！我们就可以开始我们的SDL之旅了。</p>
 
-<h6>更多环境的配置，请访问<a href="http://lazyfoo.net/SDL_tutorials/index.php">Lazyfoo</a>的博客！</h6>
+<p>更多环境的配置，请访问<a href="http://lazyfoo.net/SDL_tutorials/index.php">Lazyfoo</a>的博客!</p>
+
+<pre><code>
+    SDL_INIT_EVERYTHING&sup1:
+    事件处理子系统，文件I/O子系统和多线程子系统在初始化的时候是默认启动的。
+    如果要启用其他的子系统则需要在初始化的时候声明。
+    其他模块对应的定义如下：
+    1.SDL_INIT_TIMER                时间子系统
+    2.SDL_INIT_AUDIO                音频子系统
+    3.SDL_INIT_VIDEO                视频子系统
+    4.SDL_INIT_JOYSTICK             手柄子系统
+    5.SDL_INIT_HAPTIC               触感子系统
+    6.SDL_INIT_EVERYTHING           以上所有子系统
+    7.SDL_INIT_NOPARACHUTE          不处理致命信号
+    如果没有设置成SDL_INIT_NOPARACHUTE模式,则初始化的时候对那些致命信号采用
+    默认的处理(如SIGSEGV)。
+    如果你想单独了初始化各个子系统，则可以先调用SDL_Init(0), 然后使用各个子
+    系统的flag作为参数调用SDL_InitSubSystem()。
+</code></pre>
+
+
+
 </div>
 
 
