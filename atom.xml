@@ -4,7 +4,7 @@
   <title><![CDATA[ShortyJet.Von's Board]]></title>
   <link href="http://shortyjet-von.github.io/atom.xml" rel="self"/>
   <link href="http://shortyjet-von.github.io/"/>
-  <updated>2013-06-07T14:54:39+08:00</updated>
+  <updated>2013-06-07T14:56:26+08:00</updated>
   <id>http://shortyjet-von.github.io/</id>
   <author>
     <name><![CDATA[ShortyJet Von]]></name>
@@ -66,7 +66,7 @@
     7.SDL_INIT_NOPARACHUTE          不处理致命信号
     如果没有设置成SDL_INIT_NOPARACHUTE模式,则初始化的时候对那些致命信号采用
     默认的处理(如SIGSEGV)。
-    如果你想单独了初始化各个子系统，则可以先调用SDL_Init(0), 然后使用各个子
+    如果你想单独初始化各个子系统，则可以先调用SDL_Init(0), 然后使用各个子
     系统的flag作为参数调用SDL_InitSubSystem()。
 </code></pre>
 
