@@ -4,7 +4,7 @@
   <title><![CDATA[ShortyJet.Von's Board]]></title>
   <link href="http://shortyjet-von.github.io/atom.xml" rel="self"/>
   <link href="http://shortyjet-von.github.io/"/>
-  <updated>2013-06-07T14:56:26+08:00</updated>
+  <updated>2013-06-08T10:31:26+08:00</updated>
   <id>http://shortyjet-von.github.io/</id>
   <author>
     <name><![CDATA[ShortyJet Von]]></name>
@@ -12,6 +12,44 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[关于一个shell命令]]></title>
+    <link href="http://shortyjet-von.github.io/blog/2013/06/08/guan-yu-%5B%3F%5D-ge-shellming-ling/"/>
+    <updated>2013-06-08T09:49:00+08:00</updated>
+    <id>http://shortyjet-von.github.io/blog/2013/06/08/guan-yu-[?]-ge-shellming-ling</id>
+    <content type="html"><![CDATA[<p>今天有一个哥们问怎么查找当前目录下所有包含某个关键字的文件名，不能重复。心里
+咯噔一下，哎呀这个我不会啊。于是上网查，终于找到了解决方法。</p>
+
+<pre><code>grep "#include" `find -type f -name *.c` | cut -d ":" -f1 | uniq
+</code></pre>
+
+<p>怕自己以后忘记，所以在此记录下。</p>
+
+<p>===========================================================================</p>
+
+<p>grep命令估计大家都熟悉，不多介绍。但是` 这个符号得介绍下。</p>
+
+<p>` 叫做反引号，又名上分隔符。反引号括起来的字符串被shell解释为命令行，在执行
+时，shell首先执行该命令行，并以它的标准输出结果取代整个反引号（包括两个反引
+号）部分。
+如上面那个shell命令中，` 的作用是将<code>find -type f -name \*.c</code> 的结果当作grep的
+参数来使。同样使用xargs也可实现这样的效果。那么上面那个shell命令也等同于：</p>
+
+<pre><code>find -type f -name *.c | xargs grep "#include" | cut -d ":" -f1 | uniq
+</code></pre>
+
+<p>还有一个能同样实现该效果的方法是使用bas的$()，使用这个比` 要更容易读。
+如下:</p>
+
+<pre><code>grep "#include" $(find -type f -name *.c) | cut -d ":" -f 1 | uniq
+</code></pre>
+
+<p>===========================================================================</p>
+
+<p>cut 命令之后补充。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[SDL学习日记1:Get Start]]></title>

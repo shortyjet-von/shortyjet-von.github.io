@@ -5,7 +5,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>ShortyJet.Von's Board</title>
+  <title>关于一个shell命令 - ShortyJet.Von's Board</title>
   <meta name="author" content="ShortyJet Von">
 
   
@@ -19,7 +19,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://shortyjet-von.github.io">
+  <link rel="canonical" href="http://shortyjet-von.github.io/blog/2013/06/08/guan-yu-%5B%3F%5D-ge-shellming-ling">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="ShortyJet.Von's Board" type="application/atom+xml">
@@ -64,15 +64,12 @@
 </nav>
   <div id="main">
     <div id="content">
-      <div class="blog-index">
+      <div>
+<article class="hentry" role="article">
   
-  
-  
-    <article>
-      
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2013/06/08/guan-yu-%5B%3F%5D-ge-shellming-ling/">关于一个shell命令</a></h1>
+      <h1 class="entry-title">关于一个shell命令</h1>
     
     
       <p class="meta">
@@ -95,7 +92,7 @@
   </header>
 
 
-  <div class="entry-content"><p>今天有一个哥们问怎么查找当前目录下所有包含某个关键字的文件名，不能重复。心里
+<div class="entry-content"><p>今天有一个哥们问怎么查找当前目录下所有包含某个关键字的文件名，不能重复。心里
 咯噔一下，哎呀这个我不会啊。于是上网查，终于找到了解决方法。</p>
 
 <pre><code>grep "#include" `find -type f -name *.c` | cut -d ":" -f1 | uniq
@@ -126,111 +123,16 @@
 
 <p>cut 命令之后补充。</p>
 </div>
-  
-  
 
 
-    </article>
-  
-  
-    <article>
+  <footer>
+    <p class="meta">
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/06/06/sdlxue-xi-ri-ji-01/">SDL学习日记1:Get Start</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
   
 
+<span class="byline author vcard">Posted by <span class="fn">ShortyJet Von</span></span>
 
-<time datetime="2013-06-06T14:34:00+08:00" pubdate data-updated="true">Jun 6<span>th</span>, 2013</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>闲来无事，想玩玩SDL，找来一个介绍SDL的网站，挺不错的，从环境配置到简单的使用。初学者必看！
-想获取更多信息，访问<a href="http://lazyfoo.net/SDL_tutorials/index.php">Lazyfoo</a>的博客！
-现在开始!
-首先是搭环境，我用的环境是ubuntu系统，直接用命令行+VIM编辑器，没有IDE工具，所以这个工作很简单。只是要安装SDL的包就行了。</p>
-
-<pre><code>apt-get install libsdl1.2-dev libsdl-image1.2-dev libsdl-mixer1.2-dev libsdl-ttf2.0-dev
-</code></pre>
-
-<p>装完以后写一个小小的测试程序来测试一下环境有没有配置好。推荐使用C++，但是我比较熟悉C而且也只是玩玩，所以我用的C语言。
-代码如下：</p>
-
-<pre><code>
-    #include &ltSDL/SDL.h&gt 
-    #include &ltunistd.h&gt
-
-    int main(int argc, char **argv)
-    {
-        SDL_Init( SDL_INIT_EVERYTHING );   //初始化SDL， SDL_INIT_EVERYTHING&sup1表示初始化SDL的所有模块
-        SDL_Delay(1000);       //delay， 单位是毫秒
-        SDL_Quit();     //退出SDL
-        return 0;
-    }
-</code></pre>
-
-
-<p>编译的时候直接用的gcc编译就行，记得链上libSDL.so</p>
-
-<pre><code>gcc -o mysdl mysdl.c -lSDL
-</code></pre>
-
-<p>编译OK，执行OK的话就表示SDL环境搭建OK！我们就可以开始我们的SDL之旅了。</p>
-
-<p>更多环境的配置，请访问<a href="http://lazyfoo.net/SDL_tutorials/index.php">Lazyfoo</a>的博客!</p>
-
-<pre><code>
-    SDL_INIT_EVERYTHING&sup1:
-    事件处理子系统，文件I/O子系统和多线程子系统在初始化的时候是默认启动的。
-    如果要启用其他的子系统则需要在初始化的时候声明。
-    其他模块对应的定义如下：
-    1.SDL_INIT_TIMER                时间子系统
-    2.SDL_INIT_AUDIO                音频子系统
-    3.SDL_INIT_VIDEO                视频子系统
-    4.SDL_INIT_JOYSTICK             手柄子系统
-    5.SDL_INIT_HAPTIC               触感子系统
-    6.SDL_INIT_EVERYTHING           以上所有子系统
-    7.SDL_INIT_NOPARACHUTE          不处理致命信号
-    如果没有设置成SDL_INIT_NOPARACHUTE模式,则初始化的时候对那些致命信号采用
-    默认的处理(如SIGSEGV)。
-    如果你想单独初始化各个子系统，则可以先调用SDL_Init(0), 然后使用各个子
-    系统的flag作为参数调用SDL_InitSubSystem()。
-</code></pre>
-
-
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/05/30/just-say-hello/">Just Say Hello</a></h1>
-    
-    
-      <p class="meta">
-        
 
 
 
@@ -242,27 +144,32 @@
   
 
 
-<time datetime="2013-05-30T16:24:00+08:00" pubdate data-updated="true">May 30<span>th</span>, 2013</time>
-        
-      </p>
+<time datetime="2013-06-08T09:49:00+08:00" pubdate data-updated="true">Jun 8<span>th</span>, 2013</time>
+      
+
+
+    </p>
     
-  </header>
-
-
-  <div class="entry-content"><p>Hello!</p>
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://shortyjet-von.github.io/blog/2013/06/08/guan-yu-%5B%3F%5D-ge-shellming-ling/" data-via="" data-counturl="http://shortyjet-von.github.io/blog/2013/06/08/guan-yu-%5B%3F%5D-ge-shellming-ling/" >Tweet</a>
+  
+  
+  
 </div>
-  
-  
 
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2013/06/06/sdlxue-xi-ri-ji-01/" title="Previous Post: SDL学习日记1:Get Start">&laquo; SDL学习日记1:Get Start</a>
+      
+      
+    </p>
+  </footer>
+</article>
 
-    </article>
-  
-  <div class="pagination">
-    
-    <a href="/blog/archives">Blog Archives</a>
-    
-  </div>
 </div>
+
 <aside class="sidebar">
   
     <section>
@@ -290,6 +197,7 @@
 
   
 </aside>
+
 
     </div>
   </div>
